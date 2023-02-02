@@ -31,6 +31,7 @@ public class Movie {
         return ticketPrice;
     }
 
+    //calculate ticket price
     public double calculateTicketPrice(Showing showing) {
         return ticketPrice - getDiscount(showing);
     }
@@ -48,10 +49,11 @@ public class Movie {
         } else if (showSequence == 2) {
             sequenceDiscount = 2; // $2 discount for 2nd show
         } else if (showSequence == 7) {
-            sequenceDiscount = 1;
+            sequenceDiscount = 1; // $1 discount for 7th show
         }
         double hourDiscount = 0;
         int hour = showing.getStartTime().getHour();
+        // 25% discount for hour from 11 am to 4 pm (16/24)
         if ((hour >= 11 && hour < 16)) {
             hourDiscount = ticketPrice * 0.25;
         }

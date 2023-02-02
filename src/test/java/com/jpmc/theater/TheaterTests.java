@@ -15,6 +15,7 @@ public class TheaterTests {
     }
 
     @Test
+    // Test if discount applied during time period
     void hourDiscountTest() {
         Theater theater = new Theater(LocalDateProvider.singleton());
         Customer john = new Customer("John Doe", "id-12345");
@@ -24,6 +25,7 @@ public class TheaterTests {
     }
 
     @Test
+    // test different sequence discount
     void sequenceDiscount() {
         Theater theater = new Theater(LocalDateProvider.singleton());
         Customer john = new Customer("John Doe", "id-12345");
