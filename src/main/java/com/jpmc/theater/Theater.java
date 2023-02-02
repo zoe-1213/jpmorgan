@@ -42,13 +42,13 @@ public class Theater {
     }
 
     public void printSchedule() {
-        System.out.println(provider.currentDate());
-        System.out.println("===================================================");
+        System.out.println("{\"date\":\"" + provider.currentDate() + "\",\"schedule\":[");
         schedule.forEach(s ->
-                System.out.println(s.getSequenceOfTheDay() + ": " + s.getStartTime() + " " + s.getMovie().getTitle() + " " + humanReadableFormat(s.getMovie().getRunningTime()) + " $" + s.getMovieFee())
+        System.out.println("{\"sequence\":" + s.getSequenceOfTheDay() + ",\"start_time\":\"" + s.getStartTime() + "\",\"title\":\"" + s.getMovie().getTitle() + "\",\"duration\":" + s.getMovie().getRunningTime().toMinutes() + ",\"fee\":" + s.getMovieFee() + "},")
         );
-        System.out.println("===================================================");
+        System.out.println("]}");
     }
+
 
     public String humanReadableFormat(Duration duration) {
         long hour = duration.toHours();
