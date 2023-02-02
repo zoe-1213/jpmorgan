@@ -52,7 +52,7 @@ public class Movie {
         }
         double hourDiscount = 0;
         int hour = showing.getStartTime().getHour();
-        if (hour > 11 && hour < 4) {
+        if ((hour >= 11 && hour < 16)) {
             hourDiscount = ticketPrice * 0.25;
         }
 
